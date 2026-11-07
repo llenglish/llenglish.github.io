@@ -1,6 +1,6 @@
 # Mầm - Web khóa học ngôn ngữ (bản tĩnh để chạy thử trên GitHub Pages)
 
-Đây là bản **giao diện tĩnh** (HTML + CSS + JS), mở bằng trình duyệt là chạy, không cần cài gì thêm.
+Đây là bản **giao diện tĩnh có đăng nhập chạy thử** (HTML + CSS + JS, không cần máy chủ hay cơ sở dữ liệu), mở bằng trình duyệt là chạy, không cần cài gì thêm.
 
 ## Cách đưa lên github.io (làm một lần, khoảng 5 phút)
 
@@ -10,7 +10,7 @@
 2. Bấm dấu **+** ở góc trên bên phải, chọn **New repository**.
 3. Ô *Repository name*: đặt tên, ví dụ `mam-web` (chữ thường, không dấu, không khoảng trắng). Chọn **Public**. Bấm **Create repository**.
 4. Giải nén file zip này trên máy. Ở trang repository vừa tạo, bấm **uploading an existing file**.
-5. Mở thư mục đã giải nén, **chọn tất cả file và thư mục bên trong** (index.html, assets, ...) rồi kéo thả vào trang GitHub. Lưu ý: kéo cả nội dung bên trong, không kéo chính thư mục chứa nó, để `index.html` nằm ngay ở ngoài cùng.
+5. Mở thư mục đã giải nén, **chọn tất cả file bên trong** (index.html, style.css, app.js, ...) rồi kéo thả vào trang GitHub. Lưu ý: kéo cả nội dung bên trong, không kéo chính thư mục chứa nó, để `index.html` nằm ngay ở ngoài cùng.
    - File `.nojekyll` bị ẩn trên một số máy. Không có cũng không sao, web vẫn chạy.
 6. Kéo xuống cuối, bấm **Commit changes**.
 7. Vào tab **Settings** > **Pages** (menu bên trái). Mục *Build and deployment* > *Source* chọn **Deploy from a branch**. Mục *Branch* chọn **main** và thư mục **/ (root)**, bấm **Save**.
@@ -21,39 +21,48 @@
 
 ## Điền thông tin của bạn
 
-Mở file `assets/js/config.js` bằng Notepad (hoặc sửa trực tiếp trên GitHub: bấm vào file > biểu tượng cây bút). Điền email, ngân hàng, số tài khoản, giá, thời hạn học. Lưu lại, web tự cập nhật sau 1 đến 2 phút.
+Mở file `config.js` bằng Notepad (hoặc sửa trực tiếp trên GitHub: bấm vào file > biểu tượng cây bút). Điền email, ngân hàng, số tài khoản, giá, thời hạn học.
 
-- Để trống thì web hiện chữ `[ngoặc vuông]`.
-- Muốn có **mã QR chuyển khoản**: điền đủ `bank.bin` (mã BIN VietQR của ngân hàng), `bank.number`, giá, rồi kiểm tra lại bằng cách quét thử bằng app ngân hàng. Mã QR được tạo qua dịch vụ img.vietqr.io; bạn nên đọc điều khoản và cách dùng hiện hành của dịch vụ này trước khi bán thật.
+- `adminEmails: ['email-cua-ban@gmail.com']`: ai đăng ký bằng email này sẽ là **quản trị viên**.
+- `demo: true` tạo sẵn 2 tài khoản mẫu (`admin@mam.demo` / `Admin@123`, `hocvien@mam.demo` / `Hocvien@123`). **Đổi thành `false` khi mở bán thật.**
+- Muốn có mã QR chuyển khoản: điền đủ `bank.bin`, `bank.number` và giá.
 
-## Cấu trúc file
+## Đăng nhập hoạt động thế nào (không cần cơ sở dữ liệu)
+
+- Đăng ký, đăng nhập, quên mật khẩu (bằng **mã khôi phục** hiện một lần lúc đăng ký), đổi mật khẩu, hồ sơ.
+- 3 cấp + Pro: trang học kiểm tra quyền theo khóa, cấp và ngày hết hạn. Cấp 1 không dùng được Nộp bài và Đặt câu hỏi.
+- Mua khóa: học viên bấm "Tôi đã chuyển khoản" để tạo đơn, rồi gửi **mã đơn** cho bạn (Zalo/email).
+- Bạn vào `quan-tri.html` (đăng nhập quản trị), dán mã đơn vào "Nhập đơn", bấm **Xác nhận** và gửi lại **mã kích hoạt**. Học viên dán mã vào "Khóa của tôi" là học được.
+- Quản trị còn có: cấp quyền thủ công, thu hồi quyền, đặt lại mật khẩu học viên, xóa tài khoản.
+
+## Giới hạn quan trọng (hãy đọc)
+
+Dữ liệu chỉ nằm trong **trình duyệt của từng người** (localStorage):
+
+- Tài khoản tạo ở máy này **không đăng nhập được ở máy khác**. Xóa dữ liệu trình duyệt là mất.
+- **Không bảo mật thật**: người rành kỹ thuật có thể tự sửa dữ liệu trong trình duyệt của họ, và mã kích hoạt không chống làm giả. Vì vậy **đừng đặt video hay bài giảng trả phí thật** trên bản này.
+- Chưa có nộp bài, chấm bài, tiến trình thật; các trang đó là dữ liệu minh họa.
+- Khi bán thật: chuyển sang cơ sở dữ liệu (Supabase theo checklist). Các trang chỉ gọi `MamAuth` trong `auth.js`, nên chỉ cần thay file này.
+
+## Cấu trúc file (tất cả nằm ngang hàng, không thư mục con)
 
 ```
-index.html        Trang chủ
-khoa-hoc.html     Danh sách khóa học (lọc theo ngôn ngữ, cấp độ)
-goi-hoc.html      Gói học và bảng giá
-dang-ky.html      Đăng ký / đăng nhập (giao diện)
-mua-khoa.html     Mua khóa, hướng dẫn chuyển khoản
-hoc.html          Trang học mẫu (video, flashcard, bài tập, nộp bài)
-tien-trinh.html   Đánh giá tiến trình mẫu
-quan-tri.html     Giao diện quản trị mẫu
-chinh-sach.html   Chính sách và điều khoản (bản nháp)
-assets/           CSS, JS, ảnh mascot
+index.html, khoa-hoc.html, goi-hoc.html, chinh-sach.html   Trang công khai
+dang-ky.html        Đăng ký / đăng nhập / quên mật khẩu
+khoa-cua-toi.html   Khóa, đơn hàng, kích hoạt (cần đăng nhập)
+ho-so.html          Hồ sơ, đổi mật khẩu
+mua-khoa.html       Chọn gói, chuyển khoản, tạo đơn
+hoc.html            Trang học mẫu (chặn theo quyền)
+tien-trinh.html     Tiến trình mẫu (cần đăng nhập)
+quan-tri.html       Quản trị (chỉ admin)
+config.js           Cấu hình: sửa file này
+courses.js          Danh sách khóa học
+auth.js, auth-ui.js, auth-page.js, account.js, admin.js, app.js   Mã chạy
+style.css, mam-*.svg
 ```
-
-## Rất quan trọng: đây chỉ là bản giao diện
-
-GitHub Pages chỉ chứa file tĩnh, **không có máy chủ**. Vì vậy trong bản này:
-
-- Đăng ký, đăng nhập, nộp bài, xác nhận đơn **chưa hoạt động thật** (bấm sẽ hiện thông báo demo).
-- **Chưa có phân quyền thật.** Ai biết đường dẫn cũng mở được trang `hoc.html`, `quan-tri.html`. Không đặt video, bài giảng hay nội dung trả phí thật lên bản này.
-- Dữ liệu trong `hoc.html`, `tien-trinh.html`, `quan-tri.html` (tên học viên, điểm số, đơn hàng) là **dữ liệu giả để minh họa**.
-- Khi mở bán thật, hãy **xóa `quan-tri.html`** và các trang demo không dùng, rồi làm tiếp phần có máy chủ (Supabase theo checklist, việc 2.x đến 3.x).
-
-Bạn có thể dùng bản này để: xem thử giao diện trên điện thoại, gửi link cho người quen góp ý, và làm trang giới thiệu khóa học (trang chủ, khóa học, gói học).
 
 ## Việc nên làm trước khi chia sẻ link công khai
 
-- Điền email liên hệ và thông tin thương hiệu thật; đổi chữ "Mầm" nếu bạn dùng tên khác (tìm và thay trong các file .html).
-- Xóa hoặc thay các khung `[Số học viên]`, `[Kết quả thật]`, `[Lời chia sẻ]` ở trang chủ. Chỉ đăng thành tích thật.
+- Điền email liên hệ; đặt `demo: false`; đặt `adminEmails`, rồi tự đăng ký bằng email đó.
+- Xóa hoặc thay các khung `[Số học viên]`, `[Kết quả thật]` ở trang chủ. Chỉ đăng thành tích thật.
 - Soát lại `chinh-sach.html` và nhờ người có chuyên môn pháp lý xem trước khi bán.

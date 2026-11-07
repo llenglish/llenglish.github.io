@@ -10,18 +10,21 @@
 <meta property="og:title" content="Mua khóa và chuyển khoản - Mầm">
 <meta property="og:description" content="Chọn khóa, gói học và thanh toán bằng chuyển khoản ngân hàng theo nội dung mẫu.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="assets/img/mam-wave.svg">
+<link rel="icon" type="image/svg+xml" href="mam-wave.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<script src="assets/js/config.js"></script>
-<script src="assets/js/app.js" defer></script>
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="courses.js"></script>
+<script src="auth.js"></script>
+<script src="auth-ui.js" defer></script>
+<script src="app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Bỏ qua, đến nội dung chính</a>
 
 <header class="site-header"><div class="wrap">
-  <a class="brand" href="index.html"><img src="assets/img/mam-wave.svg" alt="Mầm, nhân vật cổ vũ" width="48" height="48"><span>Mầm</span></a>
-  <a class="btn btn-ghost btn-sm" href="khoa-hoc.html">← Chọn lại khóa học</a>
+  <a class="brand" href="index.html"><img src="mam-wave.svg" alt="Mầm, nhân vật cổ vũ" width="48" height="48"><span>Mầm</span></a>
+  <div class="head-actions"><a class="btn btn-ghost btn-sm" href="khoa-hoc.html">← Chọn lại khóa học</a></div>
 </div></header>
 <main id="main" class="wrap" style="max-width:1100px;padding-top:16px;padding-bottom:72px;display:flex;flex-direction:column;gap:28px">
   <div><h1 class="page-title" style="font-size:clamp(32px,5vw,48px)">Thanh toán chuyển khoản</h1>
@@ -66,19 +69,19 @@
           <div class="row"><span>Mã đơn</span><strong id="sumOrder">#0123</strong></div>
           <div class="row total"><span style="font-weight:600;color:var(--ink)">Tổng thanh toán</span><strong id="sumTotal">[Giá]</strong></div>
         </div>
-        <button type="button" class="btn btn-primary btn-block" style="min-height:54px;font-size:17px" data-demo-msg="Đây là bản demo: khi có máy chủ, nút này sẽ báo thầy cô kiểm tra khoản chuyển của bạn.">Tôi đã chuyển khoản</button>
+        <button type="button" class="btn btn-primary btn-block" id="btnPaid" style="min-height:54px;font-size:17px">Tôi đã chuyển khoản</button>
         <p class="small muted" style="text-align:center">Bấm sau khi chuyển khoản xong. Hãy giữ lại ảnh biên lai để đối chiếu nếu cần.</p>
       </aside>
     </div>
   </div>
 
   <section class="after">
-    <img src="assets/img/mam-cheer.svg" alt="Mầm cổ vũ" width="120" height="120">
+    <img src="mam-cheer.svg" alt="Mầm cổ vũ" width="120" height="120">
     <div>
       <h2>Sau khi chuyển khoản</h2>
       <ol>
         <li>Thầy cô đối chiếu sao kê và xác nhận đơn của bạn (dự kiến trong [thời gian]).</li>
-        <li>Khóa học tự mở trong mục <strong>Khóa của tôi</strong> cùng ngày hết hạn.</li>
+        <li>Thầy cô gửi lại <strong>mã kích hoạt</strong>; bạn dán vào mục <strong>Khóa của tôi</strong> để mở khóa học và xem ngày hết hạn.</li>
         <li>Nếu quá [thời gian] chưa thấy khóa học, liên hệ <span data-cfg="email">[email]</span> kèm mã đơn.</li>
       </ol>
     </div>

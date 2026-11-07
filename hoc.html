@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="vi">
+<html lang="vi" data-require="access" data-course="beginner">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,27 +10,30 @@
 <meta property="og:title" content="Trang học - Mầm">
 <meta property="og:description" content="Trang học mẫu: video bài giảng, flashcard từ vựng, bài tập tự luyện và nộp bài.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="assets/img/mam-wave.svg">
+<link rel="icon" type="image/svg+xml" href="mam-wave.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<script src="assets/js/config.js"></script>
-<script src="assets/js/app.js" defer></script>
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="courses.js"></script>
+<script src="auth.js"></script>
+<script src="auth-ui.js" defer></script>
+<script src="app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Bỏ qua, đến nội dung chính</a>
 
 <header class="bar"><div class="wrap">
-  <div class="left"><a class="brand" href="index.html"><img src="assets/img/mam-wave.svg" alt="Mầm" width="40" height="40"><span>Mầm</span></a>
-  <a class="btn btn-ghost btn-sm" href="khoa-hoc.html">← Khóa của tôi</a></div>
-  <div class="right"><span class="pill pill-solid">Cấp 2 · Có kèm bài</span><span class="pill pill-gold">Còn [N] ngày</span><a class="btn btn-ghost btn-sm" href="tien-trinh.html">Tiến trình</a></div>
+  <div class="left"><a class="brand" href="index.html"><img src="mam-wave.svg" alt="Mầm" width="40" height="40"><span>Mầm</span></a>
+  <a class="btn btn-ghost btn-sm" href="khoa-cua-toi.html">← Khóa của tôi</a></div>
+  <div class="right"><span class="pill pill-solid" data-bind="plan">Cấp 2 · Có kèm bài</span><span class="pill pill-gold" data-bind="days">Còn [N] ngày</span><a class="btn btn-ghost btn-sm" href="tien-trinh.html">Tiến trình</a></div>
 </div></header>
 <main id="main" class="learn">
   <section class="learn-main">
-    <div><span class="small muted" style="font-weight:500">English Beginner</span><h1>Bài 3 · Số đếm và giờ giấc</h1></div>
+    <div><span class="small muted" style="font-weight:500" data-bind="course">English Beginner</span><h1>Bài 3 · Số đếm và giờ giấc</h1></div>
 
     <div class="video">
       <button type="button" class="big-play" aria-label="Phát video bài giảng" data-demo-msg="Bản demo: khi dùng thật, video YouTube (không công khai) sẽ được nhúng ở đây và chỉ hiện cho học viên đủ quyền."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-      <span class="wm">hocvien@example.com</span><span class="wm2">Chỉ xem trong tài khoản của bạn</span>
+      <span class="wm" data-bind="email">hocvien@example.com</span><span class="wm2">Chỉ xem trong tài khoản của bạn</span>
     </div>
 
     <div class="tabs" role="tablist" aria-label="Nội dung bài học">
@@ -70,12 +73,12 @@
         <button type="button" class="opt" data-ok="0">See you tomorrow!</button>
       </div>
       <div class="feedback" id="feedback" hidden>
-        <img id="fbImg" src="assets/img/mam-celebrate.svg" alt="" width="64" height="64">
+        <img id="fbImg" src="mam-celebrate.svg" alt="" width="64" height="64">
         <div><strong id="fbTitle" style="color:var(--deep)"></strong><br><span class="muted small">Good morning dùng để chào vào buổi sáng, trước khoảng 12 giờ trưa.</span></div>
       </div>
     </div>
 
-    <div class="panel" data-panel="submit" hidden>
+    <div class="panel" data-panel="submit" data-min-level="2" hidden>
       <form data-demo="Bản demo: bài làm chưa được gửi đi. Khi có máy chủ, thầy cô sẽ nhận và chấm bài tại đây." style="display:flex;flex-direction:column;gap:16px">
         <h2 style="margin:0">Nộp bài tự làm</h2>
         <p class="muted">Viết một đoạn giới thiệu bản thân (5 đến 7 câu) kèm giờ bạn thức dậy mỗi ngày. Thầy cô sẽ chấm chữa và nhận xét ngay tại đây.</p>
@@ -85,11 +88,11 @@
       </form>
     </div>
 
-    <div class="ask"><span class="muted">Có thắc mắc về bài này? Gói Cấp 2 được hỏi thầy cô bằng văn bản.</span><button type="button" class="btn btn-outline btn-sm" data-demo-msg="Bản demo: khung đặt câu hỏi sẽ mở ở đây.">Đặt câu hỏi</button></div>
+    <div class="ask" data-min-level="2"><span class="muted">Có thắc mắc về bài này? Gói Cấp 2 được hỏi thầy cô bằng văn bản.</span><button type="button" class="btn btn-outline btn-sm" data-demo-msg="Bản demo: khung đặt câu hỏi sẽ mở ở đây.">Đặt câu hỏi</button></div>
   </section>
 
   <aside class="learn-side">
-    <div class="prog-card"><img src="assets/img/mam-cheer.svg" alt="Mầm cổ vũ" width="88" height="88"><div style="flex:1;min-width:0"><strong>Giỏi lắm! Bạn đã học 2 bài rồi.</strong><div class="meter"><i style="width:20%"></i></div><span class="small" style="color:var(--deep)">2 / 10 bài hoàn thành</span></div></div>
+    <div class="prog-card"><img src="mam-cheer.svg" alt="Mầm cổ vũ" width="88" height="88"><div style="flex:1;min-width:0"><strong>Giỏi lắm! Bạn đã học 2 bài rồi.</strong><div class="meter"><i style="width:20%"></i></div><span class="small" style="color:var(--deep)">2 / 10 bài hoàn thành</span></div></div>
     <nav class="lessons" aria-label="Danh sách bài học">
       <a class="done" href="hoc.html"><span class="dot" aria-hidden="true">✓</span>Bài 1 · Chào hỏi</a>
       <a class="done" href="hoc.html"><span class="dot" aria-hidden="true">✓</span>Bài 2 · Giới thiệu bản thân</a>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi" data-require="login">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khóa của tôi - Mầm</title>
+<meta name="description" content="Các khóa học bạn đang có, đơn hàng và kích hoạt khóa học.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" type="image/svg+xml" href="mam-wave.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="courses.js"></script>
+<script src="auth.js"></script>
+<script src="auth-ui.js" defer></script>
+<script src="app.js" defer></script>
+<script src="account.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua, đến nội dung chính</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="mam-wave.svg" alt="Mầm, nhân vật cổ vũ" width="48" height="48"><span>Mầm</span></a>
+    <nav class="main-nav" aria-label="Menu chính">
+      <a href="index.html" aria-current="page">Giới thiệu</a>
+      <a href="khoa-hoc.html" aria-current="page">Khóa học</a>
+      <a href="goi-hoc.html" aria-current="page">Gói học</a>
+      <a href="index.html#hoi-dap">Hỏi đáp</a>
+    </nav>
+    <div class="head-actions"></div>
+  </div>
+</header>
+<main id="main" class="page-narrow">
+  <div><h1 class="page-title" style="font-size:clamp(32px,5vw,48px)">Khóa của tôi</h1><p class="lead" style="margin-top:6px">Mọi khóa học và đơn hàng của bạn ở một chỗ.</p></div>
+
+  <section class="sec-card" id="newOrder" hidden style="background:var(--butter-l);border-color:#F3DA97">
+    <h2>Đã tạo đơn <span id="newOrderNo"></span></h2>
+    <p>Chuyển khoản đúng số tiền và nội dung ở bước trước, sau đó gửi <strong>mã đơn</strong> dưới đây cho thầy cô cùng ảnh biên lai (qua Zalo hoặc email). Thầy cô xác nhận xong sẽ gửi lại <strong>mã kích hoạt</strong> để bạn dán vào ô "Kích hoạt khóa học" bên dưới.</p>
+    <label class="small" for="newOrderCode" style="font-weight:600">Mã đơn</label>
+    <textarea class="codearea" id="newOrderCode" readonly></textarea>
+    <div class="btn-row"><button type="button" class="btn btn-primary btn-sm" id="newOrderCopy">Sao chép mã đơn</button></div>
+  </section>
+
+  <section aria-labelledby="h-ent">
+    <h2 id="h-ent" class="title" style="font-size:26px;margin-bottom:14px">Khóa đang học</h2>
+    <div class="my-grid" id="entList"></div>
+    <div class="sec-card" id="entEmpty" hidden style="align-items:center;text-align:center">
+      <img src="mam-wave.svg" alt="" width="96" height="96">
+      <p class="muted">Bạn chưa có khóa học nào. Chọn một khóa để bắt đầu nhé!</p>
+      <a class="btn btn-primary" href="khoa-hoc.html">Xem các khóa học</a>
+    </div>
+  </section>
+
+  <section class="sec-card" aria-labelledby="h-act">
+    <h2 id="h-act">Kích hoạt khóa học</h2>
+    <p class="muted small">Dán mã kích hoạt do thầy cô gửi. Mã chỉ dùng được với đúng tài khoản email của bạn.</p>
+    <form id="actForm">
+      <div class="field"><label for="actCode">Mã kích hoạt</label><input id="actCode" type="text" autocomplete="off" placeholder="MAMK...." style="height:48px"></div>
+      <p class="err" id="actMsg" role="alert" hidden></p>
+      <button class="btn btn-primary btn-sm" type="submit">Kích hoạt</button>
+    </form>
+  </section>
+
+  <section class="sec-card" aria-labelledby="h-ord">
+    <h2 id="h-ord">Đơn hàng của tôi</h2>
+    <div class="scroll-x"><table class="tbl"><thead><tr><th scope="col">Mã đơn</th><th scope="col">Khóa · Gói</th><th scope="col">Nội dung CK</th><th scope="col">Số tiền</th><th scope="col">Trạng thái</th><th scope="col"><span class="sr-only">Thao tác</span></th></tr></thead><tbody id="orderList"></tbody></table></div>
+    <p class="muted small" id="orderEmpty" hidden>Chưa có đơn hàng nào.</p>
+  </section>
+</main>
+</body>
+</html>

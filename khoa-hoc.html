@@ -10,17 +10,20 @@
 <meta property="og:title" content="Khóa học - Mầm">
 <meta property="og:description" content="Danh sách khóa học ngoại ngữ từ Beginner đến Advanced. Xem video giới thiệu miễn phí.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="assets/img/mam-wave.svg">
+<link rel="icon" type="image/svg+xml" href="mam-wave.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<script src="assets/js/config.js"></script>
-<script src="assets/js/app.js" defer></script>
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="courses.js"></script>
+<script src="auth.js"></script>
+<script src="auth-ui.js" defer></script>
+<script src="app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Bỏ qua, đến nội dung chính</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="assets/img/mam-wave.svg" alt="Mầm, nhân vật cổ vũ" width="48" height="48"><span>Mầm</span></a>
+    <a class="brand" href="index.html"><img src="mam-wave.svg" alt="Mầm, nhân vật cổ vũ" width="48" height="48"><span>Mầm</span></a>
     <nav class="main-nav" aria-label="Menu chính">
       <a href="index.html">Giới thiệu</a>
       <a href="khoa-hoc.html" aria-current="page">Khóa học</a>
@@ -39,7 +42,7 @@
   <div class="wrap">
     <div style="max-width:640px"><h1 class="page-title">Chọn khóa học của bạn</h1>
     <p class="lead" style="margin-top:10px">Mỗi ngôn ngữ có các khóa từ Beginner đến Advanced. Xem video giới thiệu miễn phí trước khi quyết định.</p></div>
-    <img src="assets/img/mam-study.svg" alt="Mầm đang đọc sách" width="120" height="120">
+    <img src="mam-study.svg" alt="Mầm đang đọc sách" width="120" height="120">
   </div>
 </section>
 <section class="wrap" style="padding-top:20px;padding-bottom:24px;display:flex;flex-direction:column;gap:20px">
@@ -53,7 +56,7 @@
 <section class="wrap" style="padding-bottom:56px">
   <div class="course-grid" id="courseGrid"></div>
   <div class="empty" id="courseEmpty" hidden>
-    <img src="assets/img/mam-cheer.svg" alt="Mầm cổ vũ" width="140" height="140">
+    <img src="mam-cheer.svg" alt="Mầm cổ vũ" width="140" height="140">
     <h3>Khóa học này sắp có</h3>
     <p>Mầm đang chuẩn bị bài giảng. Đăng ký tài khoản để nhận thông báo khi khóa học mở.</p>
     <a class="btn btn-primary" href="dang-ky.html">Đăng ký tài khoản</a>
@@ -61,7 +64,7 @@
 </section>
 <section class="wrap" style="padding-bottom:88px">
   <div class="note-band">
-    <img src="assets/img/mam-wave.svg" alt="Mầm vẫy tay" width="84" height="84">
+    <img src="mam-wave.svg" alt="Mầm vẫy tay" width="84" height="84">
     <div><strong>Chưa chắc nên chọn khóa nào?</strong><span>Tài khoản miễn phí xem được video giới thiệu của từng khóa. Học viên chưa mua chỉ xem phần giới thiệu.</span></div>
     <a class="btn btn-outline" href="goi-hoc.html">So sánh các gói học</a>
   </div>

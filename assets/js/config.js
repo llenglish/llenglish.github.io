@@ -4,6 +4,17 @@
   Để trống ('' hoặc 0) thì web hiển thị [ngoặc vuông] chờ bạn điền.
 */
 window.SITE = {
+  // Bản chạy thử: true = có sẵn 2 tài khoản mẫu (admin@mam.demo, hocvien@mam.demo).
+  // KHI MỞ BÁN THẬT hãy đổi thành false.
+  demo: true,
+
+  // Email của bạn (quản trị viên). Ai đăng ký bằng email nằm trong danh sách này sẽ là quản trị.
+  // Ví dụ: ['ban@gmail.com']
+  adminEmails: [],
+
+  // Chuỗi bất kỳ để mã đơn / mã kích hoạt khó đoán hơn. Đổi tùy ý (đổi xong các mã cũ sẽ không dùng được).
+  codeSalt: 'mam',
+
   // Thông tin liên hệ
   email: '',            // ví dụ: 'xinchao@ten-mien.com'
   zalo: '',             // ví dụ: '0900000000'

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đăng ký thành viên - Mầm</title>
+<meta name="description" content="Tạo tài khoản miễn phí để xem video giới thiệu các khóa học và chọn gói học phù hợp.">
+
+<meta name="theme-color" content="#0F766E">
+<meta property="og:title" content="Đăng ký thành viên - Mầm">
+<meta property="og:description" content="Tạo tài khoản miễn phí để xem video giới thiệu các khóa học và chọn gói học phù hợp.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/img/mam-wave.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua, đến nội dung chính</a>
+
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/img/mam-wave.svg" alt="Mầm, nhân vật cổ vũ" width="48" height="48"><span>Mầm</span></a>
+  <a class="btn btn-ghost btn-sm" href="index.html">← Về trang chủ</a>
+</div></header>
+<main id="main">
+<div class="wrap">
+<div class="auth">
+  <aside class="auth-side">
+    <img src="assets/img/mam-celebrate.svg" alt="Mầm ăn mừng" width="180" height="180">
+    <h1>Chào mừng bạn đến với Mầm!</h1>
+    <ul>
+      <li>Xem video giới thiệu mọi khóa học miễn phí</li>
+      <li>Chọn gói phù hợp khi bạn sẵn sàng</li>
+      <li>Theo dõi tiến bộ học tập của riêng bạn</li>
+    </ul>
+  </aside>
+  <form class="auth-form" id="authForm" data-demo="Đây là bản demo." novalidate>
+    <div class="auth-switch" role="tablist" aria-label="Chọn đăng ký hoặc đăng nhập">
+      <button type="button" role="tab" data-mode="signup" aria-selected="true">Đăng ký</button>
+      <button type="button" role="tab" data-mode="login" aria-selected="false">Đăng nhập</button>
+    </div>
+    <div><h2 id="authTitle">Tạo tài khoản</h2><p class="muted small" id="authSub">Chỉ cần vài thông tin cơ bản.</p></div>
+    <div class="field" data-signup-only><label for="ten">Họ và tên</label><input id="ten" name="ten" type="text" autocomplete="name" placeholder="Nguyễn Văn A"></div>
+    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="ban@example.com"></div>
+    <div class="field" data-signup-only><label for="sdt">Số điện thoại <span class="muted" style="font-weight:400">(để thầy cô liên hệ khi cần)</span></label><input id="sdt" name="sdt" type="tel" autocomplete="tel" placeholder="09xx xxx xxx"></div>
+    <div class="field"><label for="mk">Mật khẩu</label><input id="mk" name="mk" type="password" autocomplete="new-password" placeholder="Ít nhất 8 ký tự"></div>
+    <label class="check" data-signup-only><input type="checkbox" name="dongy"><span>Tôi đồng ý với <a href="chinh-sach.html#dieu-khoan"><strong>Điều khoản sử dụng</strong></a> và <a href="chinh-sach.html#bao-mat"><strong>Chính sách bảo mật</strong></a>.</span></label>
+    <button class="btn btn-primary btn-block" id="authSubmit" type="submit">Đăng ký</button>
+    <p class="small muted" style="text-align:center" id="authSwap">Đã có tài khoản? <a href="#" data-go="login"><strong>Đăng nhập</strong></a></p>
+    <p class="small muted" style="text-align:center;background:var(--butter-l);color:#4A3600;border-radius:14px;padding:10px 14px">Bản demo giao diện: chưa có máy chủ nên chưa tạo được tài khoản thật.</p>
+  </form>
+</div>
+</div>
+</main>
+</body>
+</html>

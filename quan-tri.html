@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quản trị - Mầm (bản demo)</title>
+<meta name="description" content="Giao diện quản trị mẫu của Mầm. Dữ liệu minh họa.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:title" content="Quản trị - Mầm (bản demo)">
+<meta property="og:description" content="Giao diện quản trị mẫu của Mầm. Dữ liệu minh họa.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/img/mam-wave.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua, đến nội dung chính</a>
+
+<div class="admin">
+<aside class="admin-side">
+  <a class="brand" href="index.html"><img src="assets/img/mam-wave.svg" alt="Mầm" width="44" height="44"><span>Mầm<small>Khu quản trị</small></span></a>
+  <div><span class="side-label">ĐANG QUẢN LÝ NGÔN NGỮ</span>
+    <div class="lang-pills"><span class="on">Tiếng Anh</span><span>Tiếng Nhật</span><span>Tiếng Trung</span></div></div>
+  <nav class="admin-nav" aria-label="Menu quản trị">
+    <a href="quan-tri.html" aria-current="page"><span>Tổng quan</span></a><a href="quan-tri.html"><span>Ngôn ngữ và khóa học</span></a><a href="quan-tri.html"><span>Bài học</span></a><a href="quan-tri.html"><span>Học viên</span></a><a href="quan-tri.html"><span>Đơn hàng</span><span class="badge">3</span></a><a href="quan-tri.html"><span>Chấm bài</span><span class="badge">5</span></a><a href="quan-tri.html"><span>Hỏi đáp</span><span class="badge">2</span></a><a href="quan-tri.html"><span>Lịch hẹn</span></a>
+  </nav>
+</aside>
+<main id="main" class="admin-main">
+  <div class="demo-banner">Đây là bản demo giao diện với dữ liệu minh họa. Khi đưa web thật lên mạng, hãy xóa trang này khỏi GitHub (xem README) để không ai thấy nó.</div>
+  <div class="top-row">
+    <div><h1>Tổng quan · Tiếng Anh</h1><span class="small muted">Số liệu trên trang chỉ để minh họa giao diện.</span></div>
+    <div class="btn-row"><button type="button" class="btn btn-outline btn-sm" data-demo-msg="Bản demo: form thêm khóa học sẽ mở ở đây.">+ Thêm khóa học</button><button type="button" class="btn btn-primary btn-sm" data-demo-msg="Bản demo: form thêm bài học sẽ mở ở đây.">+ Thêm bài học</button></div>
+  </div>
+  <div class="stats">
+    <div class="stat" style="background:var(--mint-xl)"><small>Học viên</small><b>[N]</b><span>Đang có quyền học</span></div>
+    <div class="stat" style="background:var(--butter-l)"><small>Đơn chờ xác nhận</small><b>3</b><span>Cần đối chiếu sao kê</span></div>
+    <div class="stat" style="background:var(--blush)"><small>Bài chờ chấm</small><b>5</b><span>Cũ nhất: 1 ngày trước</span></div>
+    <div class="stat" style="background:var(--mint-xl)"><small>Gói Pro đang hoạt động</small><b>[N]</b><span>Gia hạn theo tháng</span></div>
+  </div>
+
+  <section class="panel-w">
+    <div class="head"><h2>Đơn chờ xác nhận thanh toán</h2><a class="btn btn-ghost btn-sm" href="quan-tri.html">Xem tất cả →</a></div>
+    <div class="scroll-x">
+    <table class="tbl">
+      <thead><tr><th scope="col">Mã đơn</th><th scope="col">Học viên</th><th scope="col">Khóa · Gói</th><th scope="col">Nội dung CK</th><th scope="col">Thao tác</th></tr></thead>
+      <tbody>
+        <tr><td><strong>#0123</strong></td><td>Nguyễn Minh Anh</td><td>English Beginner · Cấp 2</td><td class="mono">EN-BEG-C2-0123</td><td><div class="t-actions"><button type="button" class="btn btn-primary btn-xs" data-demo-msg="Bản demo: đơn sẽ được xác nhận và mở khóa học cho học viên.">Xác nhận</button><button type="button" class="btn btn-line btn-xs" data-demo-msg="Bản demo: đơn sẽ bị hủy.">Hủy</button></div></td></tr>
+        <tr><td><strong>#0124</strong></td><td>Trần Quốc Bảo</td><td>English Intermediate · Cấp 1</td><td class="mono">EN-INT-C1-0124</td><td><div class="t-actions"><button type="button" class="btn btn-primary btn-xs" data-demo-msg="Bản demo: đơn sẽ được xác nhận và mở khóa học cho học viên.">Xác nhận</button><button type="button" class="btn btn-line btn-xs" data-demo-msg="Bản demo: đơn sẽ bị hủy.">Hủy</button></div></td></tr>
+        <tr><td><strong>#0125</strong></td><td>Lê Thu Hà</td><td>Gói Pro · 1 tháng</td><td class="mono">EN-PRO-M1-0125</td><td><div class="t-actions"><button type="button" class="btn btn-primary btn-xs" data-demo-msg="Bản demo: đơn sẽ được xác nhận và mở khóa học cho học viên.">Xác nhận</button><button type="button" class="btn btn-line btn-xs" data-demo-msg="Bản demo: đơn sẽ bị hủy.">Hủy</button></div></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <div class="two">
+    <section class="panel-w">
+      <h2>Bài chờ chấm</h2>
+      <div class="queue"><div><strong>Nguyễn Minh Anh</strong><span>English Beginner · Bài 3 · 2 giờ trước</span></div><button type="button" class="btn btn-outline btn-xs" data-demo-msg="Bản demo: trang chấm bài sẽ mở ở đây.">Chấm bài</button></div>
+      <div class="queue"><div><strong>Phạm Gia Huy</strong><span>English Elementary · Bài 7 · Hôm qua</span></div><button type="button" class="btn btn-outline btn-xs" data-demo-msg="Bản demo: trang chấm bài sẽ mở ở đây.">Chấm bài</button></div>
+      <div class="queue"><div><strong>Võ Khánh Linh</strong><span>English Beginner · Bài 4 · Hôm qua</span></div><button type="button" class="btn btn-outline btn-xs" data-demo-msg="Bản demo: trang chấm bài sẽ mở ở đây.">Chấm bài</button></div>
+    </section>
+    <section class="panel-w gold">
+      <h2>Lịch hẹn sắp tới</h2>
+      <div class="book"><time>09:00</time><div><strong>Lê Thu Hà</strong><span>Online · sửa bài nói</span></div></div>
+      <div class="book"><time>14:30</time><div><strong>Đặng Tuấn Kiệt</strong><span>Offline · hướng dẫn trực tiếp</span></div></div>
+      <div class="book"><time>19:00</time><div><strong>Ngô Bảo Châu</strong><span>Online · ôn phát âm</span></div></div>
+      <div class="mini-mascot"><img src="assets/img/mam-study.svg" alt="Mầm" width="56" height="56"><span>Mầm nhắc: nhớ chấm bài trong 48 giờ nhé!</span></div>
+    </section>
+  </div>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mua khóa và chuyển khoản - Mầm</title>
+<meta name="description" content="Chọn khóa, gói học và thanh toán bằng chuyển khoản ngân hàng theo nội dung mẫu.">
+
+<meta name="theme-color" content="#0F766E">
+<meta property="og:title" content="Mua khóa và chuyển khoản - Mầm">
+<meta property="og:description" content="Chọn khóa, gói học và thanh toán bằng chuyển khoản ngân hàng theo nội dung mẫu.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/img/mam-wave.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua, đến nội dung chính</a>
+
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/img/mam-wave.svg" alt="Mầm, nhân vật cổ vũ" width="48" height="48"><span>Mầm</span></a>
+  <a class="btn btn-ghost btn-sm" href="khoa-hoc.html">← Chọn lại khóa học</a>
+</div></header>
+<main id="main" class="wrap" style="max-width:1100px;padding-top:16px;padding-bottom:72px;display:flex;flex-direction:column;gap:28px">
+  <div><h1 class="page-title" style="font-size:clamp(32px,5vw,48px)">Thanh toán chuyển khoản</h1>
+  <p class="lead" style="margin-top:8px">Chuyển khoản đúng nội dung bên dưới để thầy cô xác nhận nhanh nhất.</p></div>
+
+  <ol class="steps-pill" aria-label="Các bước mua khóa">
+    <li class="done"><b aria-hidden="true">✓</b>Chọn khóa và gói</li>
+    <li class="now"><b aria-hidden="true">2</b>Chuyển khoản</li>
+    <li><b aria-hidden="true">3</b>Chờ xác nhận, bắt đầu học</li>
+  </ol>
+
+  <div id="checkout" style="display:flex;flex-direction:column;gap:24px">
+    <div class="picker">
+      <div class="field"><label for="selCourse">Khóa học</label><select id="selCourse"></select></div>
+      <div class="field"><label for="selPlan">Gói học</label>
+        <select id="selPlan">
+          <option value="1">Cấp 1 · Tự học</option>
+          <option value="2">Cấp 2 · Có kèm bài</option>
+          <option value="3">Cấp 3 · Kèm trực tiếp</option>
+          <option value="pro">Gói Pro · Học mọi khóa (theo tháng)</option>
+        </select></div>
+    </div>
+
+    <div class="co">
+      <section class="co-main" aria-label="Thông tin chuyển khoản">
+        <div class="qr"><div class="qr-box" id="qrBox"><strong>Mã VietQR</strong><span>Sẽ hiện khi bạn điền ngân hàng, số tài khoản và giá trong file config.js</span></div><span class="small muted" style="text-align:center">Quét bằng ứng dụng ngân hàng</span></div>
+        <dl class="bank">
+          <div><dt>Ngân hàng</dt><dd data-cfg="bank.name">[Tên ngân hàng]</dd></div>
+          <div><dt>Số tài khoản</dt><dd data-cfg="bank.number">[Số tài khoản]</dd></div>
+          <div><dt>Chủ tài khoản</dt><dd data-cfg="bank.owner">[Tên chủ tài khoản]</dd></div>
+          <div><dt>Số tiền</dt><dd class="amount" id="bankAmount">[Giá]</dd></div>
+          <div class="memo"><dt>Nội dung chuyển khoản (bắt buộc đúng)</dt>
+            <dd class="memo-row"><code id="memo">EN-BEG-C2-0123</code><button type="button" class="btn btn-outline btn-sm" data-copy="memo">Sao chép</button></dd></div>
+        </dl>
+      </section>
+      <aside class="co-side">
+        <div class="summary">
+          <h2>Đơn hàng của bạn</h2>
+          <div class="row"><span>Khóa học</span><strong id="sumCourse">English Beginner</strong></div>
+          <div class="row"><span>Gói</span><strong id="sumPlan">Cấp 2 · Có kèm bài</strong></div>
+          <div class="row"><span>Thời hạn học</span><strong id="sumDur">[Số ngày]</strong></div>
+          <div class="row"><span>Mã đơn</span><strong id="sumOrder">#0123</strong></div>
+          <div class="row total"><span style="font-weight:600;color:var(--ink)">Tổng thanh toán</span><strong id="sumTotal">[Giá]</strong></div>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" style="min-height:54px;font-size:17px" data-demo-msg="Đây là bản demo: khi có máy chủ, nút này sẽ báo thầy cô kiểm tra khoản chuyển của bạn.">Tôi đã chuyển khoản</button>
+        <p class="small muted" style="text-align:center">Bấm sau khi chuyển khoản xong. Hãy giữ lại ảnh biên lai để đối chiếu nếu cần.</p>
+      </aside>
+    </div>
+  </div>
+
+  <section class="after">
+    <img src="assets/img/mam-cheer.svg" alt="Mầm cổ vũ" width="120" height="120">
+    <div>
+      <h2>Sau khi chuyển khoản</h2>
+      <ol>
+        <li>Thầy cô đối chiếu sao kê và xác nhận đơn của bạn (dự kiến trong [thời gian]).</li>
+        <li>Khóa học tự mở trong mục <strong>Khóa của tôi</strong> cùng ngày hết hạn.</li>
+        <li>Nếu quá [thời gian] chưa thấy khóa học, liên hệ <span data-cfg="email">[email]</span> kèm mã đơn.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+</body>
+</html>
